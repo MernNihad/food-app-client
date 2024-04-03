@@ -1,0 +1,19 @@
+.hotel{
+    margin-top: 500px;
+}
+.box{
+    
+    border: 1px solid;
+    text-align: center;
+    margin: auto;
+    padding: 50px;
+
+    
+}
+.gridview{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 150px;
+    margin-top: 50px;
+    
+}

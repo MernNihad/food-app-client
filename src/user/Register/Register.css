@@ -1,0 +1,39 @@
+ .reg1{
+    text-align: center;
+    border: none;
+    /* opacity: 0.8; */
+    margin: auto;
+    top: 50px;
+    padding-left: 300px;
+    position: absolute;
+    
+}
+.regbox{
+    background-color: rgb(252, 252, 95);
+    color: aliceblue;
+    margin-top: 10px;
+
+    
+}
+.regbtn{
+    color: aliceblue;
+    background-color: rgb(243, 166, 58);
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 48px;
+
+}
+
+.bg3{
+    background-size: cover;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.reg{
+    position: relative;
+}

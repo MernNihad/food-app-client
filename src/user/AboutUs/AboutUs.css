@@ -1,0 +1,48 @@
+.ab {
+    color: rgb(248, 171, 4);
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(247, 247, 149);
+    margin-top: 50px;
+    height: 450px;
+  }
+  
+  .about {
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .abp {
+    font-size: 16px;
+    line-height: 1.5;
+    color: brown;
+    text-align: center;
+  }
+  
+  /* Media Queries */
+  @media only screen and (max-width: 768px) {
+    .ab {
+      padding: 10px;
+    }
+  
+    .about {
+      font-size: 20px;
+    }
+  
+    .abp {
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .ab {
+      max-width: 600px;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .ab {
+      max-width: 300px;
+    }
+  }
+  

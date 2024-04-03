@@ -1,0 +1,17 @@
+.Adminbar{
+    width: 18%;
+    height: 900px;
+    background-color: #E8B12D;
+}
+.barbtn{
+    width: 100px;
+    height: 50px;
+    background-color: #925F17;
+    color: white;
+    margin-top: 90px;
+    border-radius: 150px;
+}
+.sidebutton{
+    padding: 50px;
+   
+}

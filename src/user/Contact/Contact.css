@@ -1,0 +1,81 @@
+.contactpg {
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  #contact {
+    /* background-color: rgb(253, 253, 190); */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .con {
+    font-size: 30px;
+    color: rgb(248, 171, 4);
+  }
+  
+  .cop {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .coform {
+    margin-top: 20px;
+  }
+  
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .conbtn {
+    background: rgb(245, 189, 4);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  
+  .conbtn:hover {
+    color: rgb(245, 189, 4);
+    background-color: #fff;
+  }
+  
+  /* Media Queries */
+  @media only screen and (max-width: 768px) {
+    #contact {
+      padding: 10px;
+    }
+  
+    .con {
+      font-size: 20px;
+    }
+  
+    .cop {
+      font-size: 12px;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    #contact {
+      max-width: 400px;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    #contact {
+      max-width: 300px;
+    }
+  }
+  
