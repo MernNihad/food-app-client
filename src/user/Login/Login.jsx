@@ -17,11 +17,13 @@ let HandleSubmit = async(e) => {
         successToast(response.data.message)
         console.log(response.data, 'response');
         localStorage.setItem('token',response.data.data.token)
+        localStorage.setItem('id',response.data.data.user._id)
         navigate('/')
+        // console.log(data,'gfff');
     }
     catch(error){
         console.log(error);
-        errorToast(error && error.response.data.message)
+        // errorToast(error && error.response.data.message)
     }
 }
 

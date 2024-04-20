@@ -2,13 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const AddtoCart = () => {
+  const id = localStorage.getItem('id')
   const [data,setData] = useState([''])
 
   useEffect(() => {
 
      const fetchCart = async () => {
        try{
-            const cartData = await axios.get("http://localhost:8080/api/cartdata")
+            const cartData = await axios.get(`http://localhost:8080/listCart/${id}`)
             console.log('cartdata',cartData)
             setData(cartData.data)
        }catch(error){
@@ -20,10 +21,11 @@ const AddtoCart = () => {
    },[])
 
 
+
   return (
     <div className='menu-containermap'>
     
-     {data.map((item,index) => (
+     {/* {data.map((item,index) => (
        <>
        
        <div className='menulistmap'>
@@ -34,7 +36,7 @@ const AddtoCart = () => {
       </div>
      
         </>
-     ))}
+     ))} */}
     </div>
   )
 }

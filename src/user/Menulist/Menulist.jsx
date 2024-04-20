@@ -10,6 +10,8 @@ const Menulist = () => {
   const value = useLocation()
   const navigate = useNavigate()
 
+  const id = localStorage.getItem('id')
+
   console.log(value);
 
   let handleClick = async (id) => {
@@ -23,28 +25,30 @@ const Menulist = () => {
       navigate('/ordermenu')
       console.log(response, 'order');
     }
-    catch (error) {
-
+    catch (err) {
+      console.log(err);
+      
     }
   }
 
-  let handleCart = async (e, data) => {
-    e.preventDefault()
+  // add to cart
+  const handleAddToCart = async(id____)=>{
+    console.log(id____);
+   
     try {
+      
+      
+        const response = await axios.post('http://localhost:8080/addToCart',  {
+            userId:id,
+            productId:id____
+        })
+        successToast(response.data.message)
 
-      let response = await axios.post('http://localhost:8080/addtocart', data, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        }
-      })
-      successToast("Cart Added")
-      console.log(response, 'delete');
-      navigate('/cart')
-    }
-    catch (error) {
-      errorToast(error.message)
-    }
-  }
+       } catch (error) {
+         errorToast(error.message)
+       }
+}
+// --------------
 
 
   return (
@@ -63,7 +67,7 @@ const Menulist = () => {
           </p>
         </div>
         <div className="menu-buttons">
-          <button className="add-to-cart-button" onClick={(e)=>handleCart(e)}>Add to Cart</button>
+          <button className="add-to-cart-button" onClick={()=>handleAddToCart(value.state._id)}>Add to Cart</button>
           <button className="order-button" onClick={() => handleClick(value.state._id)}>
             Order
           </button>

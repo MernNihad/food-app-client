@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './menulist.css';
+import { useNavigate } from 'react-router-dom';
 
 const OrderMenu = () => {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
-  // Define checkouthandler function
-  const checkouthandler = (price) => {
-    // Handle checkout logic here
-    console.log('Checkout clicked for price:', price);
+  const id = localStorage.getItem('id');
+
+  const checkouthandler = async (id) => {
+    try {
+      // Make an API call to place the order
+      const response = await axios.post(`http://localhost:8080/order/${id}`, {}, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }
+      });
+      console.log(response, 'order');
+      // Redirect to the payment page after successful order placement
+      navigate('/payment');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -36,8 +50,8 @@ const OrderMenu = () => {
               <p>{item.userInfo.name}</p>
               <p>{item.userInfo.email}</p>
             </div>
-            {/* Pass checkouthandler function to onClick event */}
-            <button onClick={() => checkouthandler(item.productInfo.price)}>Order Now</button>
+            {/* Pass productId to checkouthandler function */}
+            <button onClick={() => checkouthandler(item.productInfo.id)}>Order Now</button>
           </div>
         </div>
       ))}

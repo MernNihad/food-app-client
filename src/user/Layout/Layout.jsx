@@ -21,6 +21,7 @@ const Home = () => {
             <Link to='/menu' className='navdetailList'>Menu</Link>
             <Link to='/aboutus' className='navdetailList'>About Us</Link>
             <Link to='/contact' className='navdetailList'>Contact</Link>
+            <Link to='/cart' className='navdetailList'>Cart</Link>
           </b>
         </div>
         <div className='navbtns'>

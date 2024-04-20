@@ -22,6 +22,7 @@ import Menulist from './user/Menulist/Menulist';
 import AddtoCart from './user/Menulist/AddtoCart';
 import OrderMenu from './user/Menulist/OrderMenu';
 import Payment from './user/Menulist/Payment';
+// import PaymentSuccess from './user/Menulist/PaymentSuccess';
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
           <Route path='product' element={<ProductAdd/>}/>
           <Route path='order' element={<ProductAdd/>}/>
           <Route path='viewproduct' element={<ViewProduct/>}/>
+          
           
           </Route>
           {/* admin area */}
