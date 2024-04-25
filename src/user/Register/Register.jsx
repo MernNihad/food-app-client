@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { TextField } from '@mui/material'
 import bgr from '../Register/regis.jpg'
 import axios from 'axios'
+import { errorToast } from '../../Components/Toast/toast'
 
 const Register = () => {
     const navigate = useNavigate()
@@ -17,8 +18,9 @@ let HandleSubmit = async(e) => {
         console.log(response.data, 'response');
         navigate('/login')
     }
-    catch(error){
-        console.log(error);
+    catch(error){    errorToast(
+        error.response.data.message || error.message || "error couured!"
+      );console.log(error);
     }
 }
 

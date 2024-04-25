@@ -22,8 +22,12 @@ import Menulist from './user/Menulist/Menulist';
 import AddtoCart from './user/Menulist/AddtoCart';
 import OrderMenu from './user/Menulist/OrderMenu';
 import Payment from './user/Menulist/Payment';
-// import PaymentSuccess from './user/Menulist/PaymentSuccess';
-
+import EditHotel from './Admin/Hotel/EditHotel';
+import EditProduct from "./Admin/AdminProduct/EditProduct"
+import OrderAddress from "./user/OrderAddress"
+import Orders from "./user/Orders"
+import AdminOrders from "./Admin/AdminOrders"
+import AdminOrderAll from "./Admin/AdminOrderAll"
 function App() {
   return (
     <div>
@@ -36,11 +40,13 @@ function App() {
           <Route path='menu' element={<Menu/>} />
           <Route path='menulist' element={<Menulist/>} />
           <Route path='cart' element={<AddtoCart/>} />
+          <Route path='orders' element={<Orders/>} />
           <Route path='ordermenu' element={<OrderMenu/>} />
           <Route path='payment' element={<Payment/>} />
           <Route path='aboutus' element={<AboutUs/>} />
           <Route path='contact' element={<Contact/>} />
           <Route path='footer' element={<Footer/>} />
+          <Route path='order-address' element={<OrderAddress/>}/>
           {/*  */}
           </Route> 
           {/* user area */}
@@ -64,8 +70,13 @@ function App() {
           <Route path='viewhotel' element={<ViewHotel/>}/>
           <Route path='user' element={<UsersAdmin/>}/>
           <Route path='product' element={<ProductAdd/>}/>
-          <Route path='order' element={<ProductAdd/>}/>
+          <Route path='order' element={<AdminOrders/>}/>
           <Route path='viewproduct' element={<ViewProduct/>}/>
+          <Route path='edit-hotel/:id' element={<EditHotel/>}/>
+          <Route path='edit-product/:id' element={<EditProduct/>}/>
+          <Route path='order/:id' element={<AdminOrderAll/>}/>
+          
+          
           
           
           </Route>

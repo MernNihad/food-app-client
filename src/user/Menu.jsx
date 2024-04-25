@@ -32,16 +32,16 @@ function Menu() {
       
     },[])
 
-    let handleCart = async (e,data) => {
-      e.preventDefault()
+    let handleCart = async (idOf) => {
+      
       try{
 
-        let response = await axios.post('http://localhost:8080/addtocart', data, {headers:{
+        let response = await axios.post('http://localhost:8080/addtocart/', {userId:localStorage.getItem("user-id"),productId:idOf}, {headers:{
           'Authorization' : `Bearer ${localStorage.getItem("token")}`, 
         }})
-        successToast("Cart Added")
+        successToast(response.data.message ||  "Cart Added")
         console.log(response,'delete');
-        navigate('/cart')
+
       }
       catch(error){
         errorToast(error.message)
@@ -62,7 +62,7 @@ function Menu() {
       <p className='menfon'>{item.name}</p>
       <p className='menfon'>{item.price}</p>
       <p className='menupara'>{item.hotelname}</p>
-      <button className='m-auto' onClick={(e)=>handleCart(e,item)}>Add To Cart</button>
+      <button className='m-auto' onClick={(e)=>handleCart(item._id)}>Add To Cart</button>
       </div>
       
         </>

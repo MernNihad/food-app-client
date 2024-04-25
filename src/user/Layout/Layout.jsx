@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from './logo.jpg';
 import './Home.css';
 import { IoMenu } from "react-icons/io5";
+import axios from 'axios';
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +11,33 @@ const Home = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const [data,setData] = useState([''])
+
+  const navigate = useNavigate();
+
+  
+  useEffect(()=>{
+
+    if(!localStorage.getItem("user-id")){
+      navigate('/Login')
+    }
+
+    if(localStorage.getItem("user-id")){
+      fetchdata()
+    }
+
+  },[navigate])
+
+
+  const fetchdata = async () => {
+    try{
+         const userData = await axios.get(`http://localhost:8080/api/v1/get-user/${localStorage.getItem("user-id")}`)
+         console.log('userdata',userData)
+         setData(userData.data)
+    }catch(error){
+         console.log(error);
+    }
+  }
 
   return (
     <div className='background-container'>
@@ -22,11 +50,23 @@ const Home = () => {
             <Link to='/aboutus' className='navdetailList'>About Us</Link>
             <Link to='/contact' className='navdetailList'>Contact</Link>
             <Link to='/cart' className='navdetailList'>Cart</Link>
+            <Link to='/orders' className='navdetailList'>Orders</Link>
           </b>
         </div>
         <div className='navbtns'>
-          <Link to='/adminlogin'><button className='navbtn rounded-full'>Admin</button></Link>
+        { data ? <>
+        
+          <Link ><button className='navbtn rounded-full'>{data.name}</button></Link>
+          <Link onClick={()=>{
+            localStorage.removeItem("admin-id")
+            navigate('/Login')
+          }} ><button className='navbtn rounded-full'>Logout</button></Link>
+        </> : <>
+        
+        <Link to='/adminlogin'><button className='navbtn rounded-full'>Admin</button></Link>
           <Link to='/login'><button className='navbtn rounded-full'>Login</button></Link>
+        </>
+        }
         </div>
         
         <div className='mobilenav' onClick={toggleMenu}>

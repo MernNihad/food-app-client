@@ -15,8 +15,7 @@ let HandleSubmit = async(e) => {
     try{
         let response = await axios.post('http://localhost:8080/api/v1/admin/login', data)
         successToast(response.data.message)
-        console.log(response.data, 'response');
-        localStorage.setItem('token',response.data.data.token)
+        localStorage.setItem('admin-id',response?.data?.data?.user?._id)
        navigate('/admin')
     }
     catch(error){

@@ -14,7 +14,7 @@ let HandleSubmit = async(e) => {
     try{
         let response = await axios.post('http://localhost:8080/api/v1/admin/register', data)
         console.log(response.data, 'response');
-        navigate('/Adminlogin')
+        navigate('/adminlogin')
     }
     catch(error){
         console.log(error);
